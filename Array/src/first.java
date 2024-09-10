@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class first {
     public static void main(String[] args) {
         int[] arr = new int[6];
@@ -6,8 +8,11 @@ public class first {
         arr[2] = 112;
         arr[3] = 11;
 
+
+
+
         for(int i: arr){
-            System.out.println(i);
+            System.out.print(i + " ");
         }
     }
 }
