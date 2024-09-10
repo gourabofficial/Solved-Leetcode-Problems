@@ -59,3 +59,6 @@ repository/
 *.out
 .iml
 .iml
+# Ignore IntelliJ project files
+*.iml
+.idea/
