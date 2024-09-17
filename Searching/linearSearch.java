@@ -19,6 +19,7 @@ class linearSearch {
         }
 
         System.out.println("the target element index is: " + result);
+        input.close();
     }
 
     public static int searching(int[] arr, int target) {
