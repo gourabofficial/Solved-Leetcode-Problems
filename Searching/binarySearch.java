@@ -6,6 +6,7 @@ class binarySearch {
         int target = 6;
         int result = binarySearching(arr, target);
         System.out.println("the target element index is: " + result);
+       
     }
 
     public static int binarySearching(int arr[], int target) {
@@ -24,8 +25,10 @@ class binarySearch {
                 }else{
                     start = mid + 1;
                 }
-                }
+             }
+
             }
+            
             return -1;
         }
     }
