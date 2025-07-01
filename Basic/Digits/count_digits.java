@@ -25,7 +25,7 @@ public class count_digits {
   }
 
   static int lastDigit(int num) {
-    return num % 10;
+    return num % 10; 
   }
 
   static int sumOfDigit(int num) {
