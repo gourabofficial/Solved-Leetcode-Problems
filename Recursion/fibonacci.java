@@ -1,7 +1,7 @@
 
 public class fibonacci {
     public static void main(String[] args) {
-        int result = fib(6);
+        int result = fib(5);
         System.out.println("Fibonacci of is: " + result);
         // System.out.println(fib(5));
     }
