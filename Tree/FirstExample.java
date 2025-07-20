@@ -11,7 +11,24 @@ public class FirstExample {
 
         // tree.inorder();
         // tree.preorder();
-        tree.postorder();
+        // tree.postorder();
+
+        // int count = tree.countNode(BinaryTree.root);
+        // System.out.println(count);
+
+        int sumOfNodes = tree.sumOfNodes(BinaryTree.root);
+        System.out.print("Sum of the nodes: " + sumOfNodes);
+
+        System.out.println();
+
+        int heightOfTheTree = tree.heightOfTheTree(BinaryTree.root);
+        System.out.println("Height of the Tree is : " + heightOfTheTree);
+
+        System.out.println();
+
+        int diameter = tree.CalculateDiameter(BinaryTree.root);
+        System.out.println("Diameter of the tree is : " + diameter);
+
         System.out.println();
 
     }
@@ -27,8 +44,9 @@ public class FirstExample {
         }
     }
 
-    public static class BinaryTree { 
+    public static class BinaryTree {
         static Node root;
+        static int AnsOfDiamiter = 0;
 
         public static void insertData(int data) {
             root = insertRec(root, data);
@@ -61,12 +79,13 @@ public class FirstExample {
 
         }
 
-        //pre order
-        public static void preorder(){
+        // pre order
+        public static void preorder() {
             preorderRec(root);
         }
-        public static void preorderRec(Node root){
-            if(root == null){
+
+        public static void preorderRec(Node root) {
+            if (root == null) {
                 return;
             }
             System.out.print(root.data + " ");
@@ -74,13 +93,13 @@ public class FirstExample {
             preorderRec(root.right);
         }
 
-        //post order
-        public static void postorder(){
+        // post order
+        public static void postorder() {
             postorderRec(root);
         }
 
-        public static void postorderRec(Node root){
-            if(root == null){
+        public static void postorderRec(Node root) {
+            if (root == null) {
                 return;
             }
             postorderRec(root.left);
@@ -88,5 +107,62 @@ public class FirstExample {
             System.out.println(root.data + " ");
 
         }
+
+        // count the nodes
+        public static int countNode(Node root) {
+            if (root == null) {
+                return 0;
+            }
+
+            int left = countNode(root.left);
+            int right = countNode(root.right);
+
+            return 1 + left + right;
+        }
+
+        // sun of nodes
+
+        public static int sumOfNodes(Node root) {
+            if (root == null) {
+                return 0;
+            }
+            int left = sumOfNodes(root.left);
+            int right = sumOfNodes(root.right);
+
+            return left + right + root.data;
+        }
+
+        // height of the tree
+
+        public static int heightOfTheTree(Node root) {
+            if (root == null) {
+                return 0;
+            }
+            int left = heightOfTheTree(root.left);
+            int right = heightOfTheTree(root.right);
+
+            return Math.max(left, right) + 1;
+        }
+
+        // diameter of a binary tree
+        public static int CalculateDiameter(Node root){
+            diamiter(root);
+            return AnsOfDiamiter;
+        }
+        public static int diamiter(Node root){
+
+        if(root == null){
+        return 0;
+        }
+
+        int diam1 = diamiter(root.left);
+        int diam2 = diamiter(root.right);
+
+        int finaldiam = diam1 + diam2 + 1;
+        AnsOfDiamiter = Math.max(AnsOfDiamiter, finaldiam);
+        return 1 + Math.max(diam1, diam2);
+
+        }
+
     }
 }
