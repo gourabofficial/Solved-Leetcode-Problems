@@ -1,3 +1,4 @@
+//it meanse the two array there is some value after completed the operation the output is : 1,2,3,4,5,6,10 (// ignore the same value )
 
 import java.util.HashSet;
 
