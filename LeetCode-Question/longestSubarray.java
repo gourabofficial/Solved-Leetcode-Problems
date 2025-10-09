@@ -9,20 +9,26 @@ Output:
 
 public class longestSubarray {
     public static void main(String[] args) {
-       int[] arr = {10, 5, 2, 7, 1, 9};
+        int arr[] = { 10, 5, 2, 7, 1, 9 };
         int k = 15;
 
-        int maxLen = 0;
+        int result = findTheSubArraySum(arr, k);
+        System.out.println(result);
+
+    }
+
+    public static int findTheSubArraySum(int arr[], int k) {
+        int max_length = 0;
+
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
             for (int j = i; j < arr.length; j++) {
                 sum += arr[j];
-                if (sum == k) {
-                    maxLen = Math.max(maxLen, j - i + 1);
-                }
+                if (sum == k) { 
+                    max_length = Math.max(max_length, j - i + 1);  // i = 5 (first index), j = 1 (last index)
+                }                                                 // subarray = [5,2,7,1] length= 4-1+1=4
             }
         }
-
-        System.out.println("Longest Subarray Length = " + maxLen);
+        return max_length;
     }
 }
